@@ -41,7 +41,7 @@ class TodoItem(db.Model):
 with app.app_context():
     db.create_all()
 
-"""
+
 INITIAL_TODOS = [
     TodoItem(title='Learn Flask'),
     TodoItem(title='Build a Flask App'),
@@ -52,7 +52,7 @@ with app.app_context():
         for item in INITIAL_TODOS:
             db.session.add(item)
         db.session.commit()
-"""
+
 
 @app.route('/api/todos/', methods=['GET'])
 def get_todos():
@@ -68,14 +68,14 @@ def add_todo():
     data = request.get_json()
     todo = new_todo(data)
     if todo:
-        db.session.add(todo)
-        db.session.commit()
-        return jsonify(todo.to_dict())
+        db.session.add(todo)                       
+        db.session.commit()                         
+        return jsonify(todo.to_dict())            
     else:
         # return http response code 400 for bad requests
-        return (jsonify({'error': 'Invalid todo data'}), 400)  
+        return (jsonify({'error': 'Invalid todo data'}), 400)
     
-
+"""
 @app.route('/api/todos/<int:id>/toggle/', methods=['PATCH'])
 def toggle_todo(id):
     todo = TodoItem.query.get_or_404(id)
@@ -108,3 +108,4 @@ def add_comment(todo_id):
     db.session.commit()
  
     return jsonify(comment.to_dict())
+"""
