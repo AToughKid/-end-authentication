@@ -75,7 +75,7 @@ function App() {
     }
   }
 
-  async function addNewComment(todoId) {
+   async function addNewComment(todoId) {
     try {
       const url = `${TODOLIST_API_URL}${todoId}/comments/`;
       const response = await fetch(url, {
@@ -115,7 +115,6 @@ function App() {
               </>
             )}
 
-            {/*
             <div className="new-comment-forms">
               <input
                 type="text"
@@ -127,7 +126,6 @@ function App() {
               />
               <button onClick={() => {addNewComment(todo.id)}}>Add Comment</button>
             </div>
-            */}
 
           </li>
         ))}
