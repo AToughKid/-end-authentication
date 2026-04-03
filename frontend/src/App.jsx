@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from './context/AuthContext.jsx';
+import PrivateRoute from "./PrivateRoute.jsx";
 import './App.css'
 
 import TodoList from './TodoList.jsx'
@@ -16,7 +17,9 @@ function App() {
           <Route 
             path="/" 
             element={
-              <TodoList apiUrl={TODOLIST_API_URL}/>
+              <PrivateRoute>
+                <TodoList apiUrl={TODOLIST_API_URL}/>
+              </PrivateRoute>
             } 
           />
 

@@ -26,7 +26,7 @@ function TodoItem({todo, toggleDone, deleteTodo, addNewComment}) {
         )}
 
         {(todo.comments) && (todo.comments.length > 0) && (
-          <p>{todo.comments.length}</p>
+          <p>Totla comments: {todo.comments.length}</p>
         )}
 
         <div className="new-comment-forms">
